@@ -11,18 +11,21 @@ struct ContentView: View {
     @StateObject var viewModel = MovieDBViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+           
         }
-        .padding()
+        .padding().onAppear{
+            viewModel.loadTrending()
+        }
     }
 }
 class MovieDBViewModel: ObservableObject{
-    @Published var homeScreen:[ TrendingItem]
+    @Published var homeScreen:[ TrendingItem] = []
     
-    func
+    func loadTrending(){
+        Task{
+            
+        }
+    }
 }
 
 struct TrendingItem: Identifiable, Decodable{
