@@ -18,7 +18,7 @@ struct ContentView: View {
                     HStack{
                         ForEach(viewModel.trending){
                             trendingItem in
-                            Text(trendingItem.title)
+                            TrendingCard(trendingItem: trendingItem)
                         }
                     }
                 }
@@ -26,6 +26,31 @@ struct ContentView: View {
         }
         .padding().onAppear{
             viewModel.loadTrending()
+        }
+    }
+}
+// creating a component
+struct TrendingCard: View{
+    let trendingItem: TrendingItem
+    var body: some View{
+        ZStack{
+//            AsyncImage(url: trendingItem.poster_path )
+//            {image in image.resizable().scaledToFill()
+//
+//            } placeholder: {
+//                ProgressView()
+//            }
+            VStack{
+                HStack{
+                    Text(trendingItem.title)
+                    Spacer()
+                    Image(systemName: "heart.fill").foregroundColor(.red)
+                }
+                HStack{
+                    Image(systemName: "hand.thumbsup.fill").foregroundColor(.yellow)
+                    Text("\(trendingItem.vote_average)")
+                }
+            }
         }
     }
 }
