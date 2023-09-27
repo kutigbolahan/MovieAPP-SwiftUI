@@ -49,7 +49,7 @@ struct TrendingCard: View{
                 HStack{
                     Image(systemName: "hand.thumbsup.fill").foregroundColor(.yellow)
                     Text("\(trendingItem.vote_average)")
-                }
+                }.foregroundColor(.yellow)
             }
         }
     }
