@@ -87,6 +87,12 @@ struct TrendingItem: Identifiable, Decodable{
     let poster_path: String
     let title: String
     let vote_average: Float
+    let backdrop_path: String
+    
+    var backdropURL : URL {
+        let baseURL = URL(string: "https://image.tmdb.org/t/p/w500")
+        return baseURL?.appending(path: backdrop_path)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
